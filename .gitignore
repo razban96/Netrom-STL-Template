@@ -1,0 +1,12 @@
+# CLion & CMake build directories
+cmake-build-*/
+.idea/
+
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# Local generated output (nu afecteaza output1.txt, output2.txt etc.)
+IO/my_output.txt
