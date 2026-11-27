@@ -1,4 +1,5 @@
 # Netrom STL Template (C++20)
+![Build and Test STL](https://github.com/razban96/Netrom-STL-Template/actions/workflows/ci.yml/badge.svg)
 
 Repository template pentru rezolvarea problemelor de antrenament și a testului practic STL (C++20) cu testare automată pe fișiere `input*.txt` / `output*.txt`, sanitizere de memorie în modul Debug și suport nativ pentru **mai multe probleme în același proiect**.
 
