@@ -1,0 +1,32 @@
+name: Build and Test STL
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [ Debug, Release ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake (${{ matrix.build_type }})
+        run: cmake -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+      - name: Build (${{ matrix.build_type }})
+        run: cmake --build build --parallel
+
+      - name: Run STL Tests (${{ matrix.build_type }})
+        run: ctest --test-dir build --output-on-failure --no-tests=error --timeout 15

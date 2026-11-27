@@ -1,5 +1,6 @@
 # CLion & CMake build directories
 cmake-build-*/
+build/
 .idea/
 
 # Compiled binaries
@@ -8,5 +9,5 @@ cmake-build-*/
 *.o
 *.obj
 
-# Local generated output (nu afecteaza output1.txt, output2.txt etc.)
-IO/my_output.txt
+# Local generated output in any problem's IO folder
+**/IO/my_output.txt
